@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New email</title>
+</head>
+<body>
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <h2>Add new email</h2>
+        <label>
+            Address:
+            <input type="text" name="address" required>
+        </label><br>
+        <label>
+            Address type:
+            <input type="text" name="address_type">
+        </label><br>
+
+        <input type="submit" value="Add email">
+    </form>
+    <br>
+    <form action="/">
+        <input type="submit" value="Back" />
+    </form>
+</body>
+</html>

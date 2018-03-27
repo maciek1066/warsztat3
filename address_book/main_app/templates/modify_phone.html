@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <h2>Edit phone</h2>
+        <label>
+            Number:
+            <input type="text" name="number" value= {{ phone.number }}>
+        </label><br>
+        <label>
+            Number type:
+            <input type="text" name="number_type" value= {{ phone.number_type }}>
+        </label><br>
+
+        <input type="submit" value="Edit phone">
+    </form>
+    <br>
+    <form action="/show/{{ person.id }}/">
+        <input type="submit" value="Back" />
+    </form>
+</body>
+</html>

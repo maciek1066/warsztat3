@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New address</title>
+</head>
+<body>
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <h2>Add new address</h2>
+        <label>
+            City:
+            <input type="text" name="city" required>
+        </label><br>
+        <label>
+            Street:
+            <input type="text" name="street">
+        </label><br>
+        <label>
+            House number:
+            <input type="text" name="house_number" required>
+        </label><br>
+        <label>
+            Apartment number:
+            <input type="text" name="apartment_number">
+        </label><br>
+
+        <input type="submit" value="Add address">
+    </form>
+    <br>
+    <form action="/">
+        <input type="submit" value="Back" />
+    </form>
+</body>
+</html>

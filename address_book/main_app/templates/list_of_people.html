@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Address book</title>
+</head>
+<body>
+    <h1>Address book</h1>
+    <ol>
+        {% for person in people %}
+        <li><h3>
+            <a href="/show/{{ person.id }}/">{{ person.first_name }}</a> {{ person.last_name }}
+                <form action="/modify/{{ person.id }}/">
+                    <input type="submit" value="Edit information" />
+                </form>
+                <form action="/delete/{{ person.id }}/">
+                    <input type="submit" value="Delete person" />
+                </form>
+                <form action="/addTo/{{ person.id }}/">
+                    <input type="submit" value="Add person to group" />
+                </form></h3>
+            </li>
+        {% endfor %}
+        <br>
+        <form action="/new/">
+            <input type="submit" value="Add new person" />
+        </form>
+        <br>
+        <form action="/group/">
+            <input type="submit" value="Show groups" />
+        </form>
+        <br>
+        <form action="/group-search/">
+            <input type="submit" value="Search" />
+        </form>
+    </ol>
+</body>
+</html>

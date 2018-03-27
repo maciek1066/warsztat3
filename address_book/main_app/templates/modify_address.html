@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <h2>Edit address</h2>
+        <label>
+            City:
+            <input type="text" name="city" value= {{ address.city }}>
+        </label><br>
+        <label>
+            Street:
+            <input type="text" name="street" value= {{ address.street }}>
+        </label><br>
+        <label>
+            House number:
+            <input type="text" name="house_number" value= {{ address.house_number }}>
+        </label><br>
+        <label>
+            Apartment number:
+            <input type="text" name="apartment_number" value= {{ address.apartment_number }}>
+        </label><br>
+
+        <input type="submit" value="Edit address">
+    </form>
+    <br>
+    <form action="/show/{{ person.id }}">
+        <input type="submit" value="Back" />
+    </form>
+
+</body>
+</html>

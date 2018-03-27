@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <h2>Edit information</h2>
+        <label>
+            Name:<br>
+            <input type="text" name="first_name" value="{{ person.first_name }}">
+        </label><br><br>
+        <label>
+            Surname:<br>
+            <input type="text" name="last_name" value="{{ person.last_name }}">
+        </label><br><br>
+        <label>
+            Description:<br>
+            <input type="text" name="description" value="{{ person.description }}">
+        </label><br><br>
+
+        <input type="submit" value="Edit person">
+    </form>
+    <br>
+    <form action="/">
+        <input type="submit" value="Back" />
+    </form>
+</body>
+</html>

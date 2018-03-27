@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body>
+    <h2>Person details</h2>
+
+    <ul>
+        <p>INFO</p>
+        <li>Name: {{ person.first_name }}</li>
+        <li>Surname: {{ person.last_name }}</li>
+        <p>ADDRESS</p>
+
+        {% for address in person.address_set.all %}
+            {% if address.city %}
+                <li>City: {{ address.city }}</li>
+            {% else %}
+                <li>City: - </li>
+            {% endif %}
+
+            {% if address.street %}
+                <li>Street: {{ address.street }}</li>
+            {% else %}
+                <li>Street: - </li>
+            {% endif %}
+
+            {% if address.house_number %}
+                <li>House number: {{ address.house_number }}</li>
+            {% else %}
+                <li>House number: - </li>
+            {% endif %}
+
+            {% if address.apartment_number %}
+                <li>Apartment number: {{ address.apartment_number }}</li>
+            {% else %}
+                <li>Apartment number: - </li>
+            {% endif %}
+
+            <br>
+            <form action="/modify/{{ person.id }}/modifyAddress/{{ address.id }}/">
+                <input type="submit" value="Edit address" />
+            </form>
+
+            <form action="/modify/{{ person.id }}/deleteAddress/{{ address.id }}/">
+                <input type="submit" value="Delete address" />
+            </form>
+            <br>
+
+        {% endfor %}
+
+        <form action="/modify/{{ person.id }}/addAddress/">
+            <input type="submit" value="Add address" />
+        </form>
+
+        <p>PHONE</p>
+
+        {% for phone in person.phone_set.all %}
+            {% if phone.number %}
+                <li>Number: {{ phone.number }}</li>
+            {% else %}
+                <li>Number: - </li>
+            {% endif %}
+
+            {% if phone.number_type %}
+                <li>Type: {{ phone.number_type }}</li>
+            {% else %}
+                <li>Type: - </li>
+            {% endif %}
+
+            <br>
+            <form action="/modify/{{ person.id }}/modifyPhone/{{ phone.id }}/">
+                <input type="submit" value="Edit phone" />
+            </form>
+
+            <form action="/modify/{{ person.id }}/deletePhone/{{ phone.id }}/">
+                <input type="submit" value="Delete phone" />
+            </form>
+            <br>
+
+        {% endfor %}
+
+        <form action="/modify/{{ person.id }}/addPhone/">
+            <input type="submit" value="Add phone" />
+        </form>
+
+        <p>EMAIL</p>
+
+        {% for email in person.email_set.all %}
+            {% if email.address %}
+                <li>Address: {{ email.address }}</li>
+            {% else %}
+                <li>Address: - </li>
+            {% endif %}
+
+            {% if email.address_type %}
+                <li>Type: {{ email.address_type }}</li>
+            {% else %}
+                <li>Type: - </li>
+            {% endif %}
+
+            <br>
+            <form action="/modify/{{ person.id }}/modifyEmail/{{ email.id }}/">
+                <input type="submit" value="Edit email" />
+            </form>
+
+            <form action="/modify/{{ person.id }}/deleteEmail/{{ email.id }}/">
+                <input type="submit" value="Delete email" />
+            </form>
+            <br>
+
+        {% endfor %}
+
+        <form action="/modify/{{ person.id }}/addEmail/">
+            <input type="submit" value="Add email" />
+        </form>
+
+        <p>GROUPS</p>
+
+        {% for group in person.group_set.all %}
+            {% if group.name %}
+                <li>"{{ group.name }}" group member</li>
+            {% else %}
+                <li>No membership</li>
+            {% endif %}
+        {% endfor %}
+
+        <!--TODO-->
+        <!--DODAC ADD GROUP/ADD TO GROUP/DELETE GROUP/DELETE FROM GROUP???-->
+
+        <br>
+        <form action="/modify/{{ person.id }}/">
+            <input type="submit" value="Edit information" />
+        </form>
+
+        <br>
+        <form action="/">
+            <input type="submit" value="Back" />
+        </form>
+    </ul>
+</body>
+</html>

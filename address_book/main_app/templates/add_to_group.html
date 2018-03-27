@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add to group</title>
+</head>
+<body>
+    <form action="" method='POST'>
+    {% csrf_token %}
+    <h2>Add person to the group</h2>
+        <label>
+            Group:
+            <select name="name">
+                {% for group in groups %}
+                    <option>{{ group.name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        <br><br>
+        <input type="submit" value='Add'>
+    </form>
+    <br>
+    <form action="/">
+        <input type="submit" value="Back" />
+    </form>
+</body>
+</html>

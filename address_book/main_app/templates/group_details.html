@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Groups</title>
+</head>
+<body>
+    <h2>"{{ group.name }}" group members</h2>
+    <ul>
+        {% for person in people %}
+            <li>{{ person.first_name }} {{ person.last_name }}</li>
+            <form action="/removeFrom/{{ group.id }}/{{ person.id }}/">
+                <input type="submit" value="Remove person" />
+            </form>
+        {% endfor %}
+        <br>
+        <form action="/group/">
+            <input type="submit" value="Back" />
+        </form>
+        <br>
+        <form action="/group/delete/{{ group.id }}/">
+            <input type="submit" value="Delete group" />
+        </form>
+    </ul>
+</body>
+</html>

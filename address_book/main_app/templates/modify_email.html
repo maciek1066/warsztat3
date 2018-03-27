@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <h2>Edit email</h2>
+        <label>
+            Address:
+            <input type="text" name="address" value= {{ email.address }}>
+        </label><br>
+        <label>
+            Address type:
+            <input type="text" name="address_type" value= {{ email.address_type }}>
+        </label><br>
+
+        <input type="submit" value="Edit email">
+    </form>
+    <br>
+    <form action="/show/{{ person.id }}/">
+        <input type="submit" value="Back" />
+    </form>
+</body>
+</html>
